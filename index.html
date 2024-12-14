@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodMate - Mood Tracker</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F3E5F5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .tracker-container {
+      width: 90%;
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .emoji-row {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .emoji-button {
+      font-size: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .emoji-button:hover {
+      transform: scale(1.2);
+      background-color: #E1BEE7;
+    }
+
+    .display-area {
+      padding: 15px;
+      background-color: #E3F2FD;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+
+    .display-area h2 {
+      font-size: 36px;
+      margin: 10px 0;
+    }
+
+    .display-area p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .emoji-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tracker-container">
+    <h1>How are you feeling today?</h1>
+    <div class="emoji-row">
+      <button class="emoji-button" onclick="updateMood('😊', 'Keep smiling and spread positivity!')">😊</button>
+      <button class="emoji-button" onclick="updateMood('😔', 'It’s okay to feel down sometimes. You are stronger than you think!')">😔</button>
+      <button class="emoji-button" onclick="updateMood('😡', 'Take a deep breath. You’ll overcome this!')">😡</button>
+      <button class="emoji-button" onclick="updateMood('😎', 'You’re awesome! Keep rocking your day!')">😎</button>
+      <button class="emoji-button" onclick="updateMood('😢', 'It’s okay to cry. Let it out, and then move forward!')">😢</button>
+    </div>
+    <div class="display-area" id="displayArea">
+      <h2>😊</h2>
+      <p>Select an emoji to see your motivational message.</p>
+    </div>
+  </div>
+
+  <script>
+    function updateMood(emoji, message) {
+      const displayArea = document.getElementById('displayArea');
+      displayArea.innerHTML = `<h2>${emoji}</h2><p>${message}</p>`;
+    }
+  </script>
+</body>
+</html>
